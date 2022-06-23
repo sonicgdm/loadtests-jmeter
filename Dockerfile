@@ -1,10 +1,10 @@
 # inspired by https://github.com/hauptmedia/docker-jmeter  and
 # https://github.com/hhcordero/docker-jmeter-server/blob/master/Dockerfile
-FROM alpine:3.12
+FROM openjdk:18-jdk-alpine
 
 MAINTAINER Just van den Broecke<just@justobjects.nl>
 
-ARG JMETER_VERSION="5.4.3"
+ARG JMETER_VERSION="5.5"
 ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
 ENV JMETER_CUSTOM_PLUGINS_FOLDER /plugins
 ENV	JMETER_BIN	${JMETER_HOME}/bin
@@ -27,8 +27,8 @@ RUN    apk update \
 	&& tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
 	&& rm -rf /tmp/dependencies
 
-COPY exctract-me-into-lib-ext.zip .
-RUN unzip -oq "exctract-me-into-lib-ext.zip" -d ${JMETER_HOME}/lib/ext
+COPY extra-libs.zip .
+RUN unzip -oq "extra-libs.zip" -d ${JMETER_HOME}/lib
 
 # Set global PATH such that "jmeter" command is found
 ENV PATH $PATH:$JMETER_BIN
