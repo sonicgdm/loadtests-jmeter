@@ -28,7 +28,7 @@ RUN    apk update \
 	&& rm -rf /tmp/dependencies
 
 COPY exctract-me-into-lib-ext.zip .
-RUN unzip -oq "exctract-me-into-lib-ext.zip" -d ${JMETER_HOME}/lib
+RUN unzip -oq "exctract-me-into-lib-ext.zip" -d ${JMETER_HOME}/lib/ext
 
 # Set global PATH such that "jmeter" command is found
 ENV PATH $PATH:$JMETER_BIN
