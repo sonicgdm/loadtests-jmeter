@@ -36,7 +36,7 @@
             </elementProp>
             <elementProp name="DEFAULT_STARDUST_PLAYER_ID" elementType="Argument">
               <stringProp name="Argument.name">DEFAULT_STARDUST_PLAYER_ID</stringProp>
-              <stringProp name="Argument.value">2f5b7e03-72f3-4e5a-bb71-856e1a7d0584</stringProp>
+              <stringProp name="Argument.value">${__UUID()}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="TG_DEFAULT_NUMBER_OF_TREADS" elementType="Argument">
@@ -60,14 +60,14 @@
         <com.gslab.pepper.config.plaintext.PlainTextConfigElement guiclass="TestBeanGUI" testclass="com.gslab.pepper.config.plaintext.PlainTextConfigElement" testname="Voucher converting period info template" enabled="true">
           <stringProp name="placeHolder">MESSAGE</stringProp>
           <stringProp name="jsonSchema">{
-    id: {{UUID()}},
-    timestamp: {{DATE(&quot;dd-MM-yyyy&apos;T&apos;HH:mm:ss.SSS&apos;Z&apos;&quot;)}},
-    idempotencyKey: {{UUID()}},
-    correlationId: {{UUID()}},
-    data: {
-      periodId: ${__env(PERIOD_ID, , ${DEFAULT_PERIOD_ID})},
-      stardustPlayerId: ${__env(STARDUST_PLAYER_ID, , ${DEFAULT_STARDUST_PLAYER_ID})},
-      vouchersAmount: 2,
+    &quot;id&quot;: &quot;{{UUID()}}&quot;,
+    &quot;timestamp&quot;: &quot;{{DATE(&quot;yyyy-MM-dd&apos;T&apos;HH:mm:ss.SSS&apos;Z&apos;&quot;)}}&quot;,
+    &quot;idempotencyKey&quot;: &quot;{{UUID()}}&quot;,
+    &quot;correlationId&quot;: &quot;{{UUID()}}&quot;,
+    &quot;data&quot;: {
+      &quot;periodId&quot;: &quot;${__env(PERIOD_ID, ,  ${DEFAULT_PERIOD_ID})}&quot;,
+      &quot;stardustPlayerId&quot;: &quot;{{UUID()}}&quot;,
+      &quot;vouchersAmount&quot;: 2
   }
 }</stringProp>
         </com.gslab.pepper.config.plaintext.PlainTextConfigElement>
