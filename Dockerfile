@@ -38,7 +38,7 @@ COPY entrypoint.sh /
 
 WORKDIR	${JMETER_HOME}
 
-RUN echo "jmeter.save.saveservice.output_format=xml" >> ${JMETER_BIN}/user.properties
+RUN echo "jmeter.save.saveservice.output_format=xml" >> ${JMETER_BIN}/user.properties && mkdir -p report
 
 COPY KafkaLoadTest.jmx .
 
